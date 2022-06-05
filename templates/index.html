@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+
+    {% if user %}
+        <h1>Welcome back: {{user.first_name}} {{user.last_name}}</h1>
+        <p>This is your email address: {{user.email}}</p>
+    {% else %}
+       <form action="/login" method="post">
+            <div class="first_name">
+                <label for="first-name">Enter your first name: </label>
+                <input type="text" id="first-name" name="first-name">
+            </div>
+            <div class="last_name">
+                <label for="last-name">Enter your last name: </label>
+                <input type="text" id="last-name" name="last-name">
+            </div>
+            <div class="email">
+                <label for="email">Enter your email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    {% endif %}
+{% endblock content %}
